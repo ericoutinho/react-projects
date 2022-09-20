@@ -6,9 +6,6 @@ import Input from "./components/Input"
 
 function App() {
 
-    const ENTER_KEY = 13;
-    const ESC_key = 27;
-
     const startTodos = [
         {id: 1, title: "Estudar React.js", checked: true},
         {id: 2, title: "Pagar boleto", checked: true},
@@ -17,27 +14,9 @@ function App() {
     ]
 
     const [todos, setTodos] = useState(startTodos)
-    const [value, setValue] = useState('')
 
-    const clear = () => {
-        setValue('')
-    }
-
-    const submit = () => {
+    const newTodo = (value) => {
         setTodos([...todos, {id: new Date().getTime(), title: value, checked: false}])
-        clear()
-    }
-
-    const onChange = (event) => {
-        setValue(event.target.value)
-    }
-
-    const onKeyDown = (event) => {
-        if (event.which === ENTER_KEY) {
-        submit()
-        } else if (event.which === ESC_key) {
-        clear()
-        }
     }
 
     const onToggle = (item) => {
@@ -58,7 +37,7 @@ function App() {
             <main>
                 <div className="container">
 
-                <Input value={value} onChange={onChange} onKeyDown={onKeyDown} />
+                <Input newTodo={newTodo} />
 
                 <Lista data={todos} onToggle={onToggle} onRemove={onRemove} />
 

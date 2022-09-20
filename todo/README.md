@@ -12,4 +12,4 @@ Criar uma lista de tarefas utilizando React.js onde seja possível adicionar tar
 
 ## Prioridades
 
-- [ ] Estrutura deve ser baseada em componentes.
+- [x] Estrutura deve ser baseada em componentes.
